@@ -40,10 +40,10 @@ class TowLayerNet:
     y = np.argmax(y, axis=1)
     if t.ndim != 1: t = np.argmax(t, axis=1)
     
-    accuracy = np.sum(y == 1) / float(x.shape[0])
+    accuracy = np.sum(y == t) / (x.shape[0])
     return accuracy
   
-  def numericalgradient(self, x, t):
+  def numerical_gradient(self, x, t):
     loss_W = lambda W:self.loss(x, t)
     
     grads = {}
