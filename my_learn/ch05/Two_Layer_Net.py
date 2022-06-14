@@ -27,7 +27,7 @@ class TowLayerNet:
     self.lastLayer = SoftmaxWithLoss()
     
   def predict(self, x):
-    for layer in self.layers:
+    for layer in self.layers.values():
       x = layer.forward(x)
     return x
   
@@ -43,14 +43,14 @@ class TowLayerNet:
     accuracy = np.sum(y == 1) / float(x.shape[0])
     return accuracy
   
-  def numerical_gradient(self, x, t):
+  def numericalgradient(self, x, t):
     loss_W = lambda W:self.loss(x, t)
     
     grads = {}
-    grads["W1"] = numerical_gradient(loss_W. self.params["W1"])
-    grads["b1"] = numerical_gradient(loss_W. self.params["b1"])
-    grads["W2"] = numerical_gradient(loss_W. self.params["W2"])
-    grads["b2"] = numerical_gradient(loss_W. self.params["b2"])
+    grads["W1"] = numerical_gradient(loss_W, self.params["W1"])
+    grads["b1"] = numerical_gradient(loss_W, self.params["b1"])
+    grads["W2"] = numerical_gradient(loss_W, self.params["W2"])
+    grads["b2"] = numerical_gradient(loss_W, self.params["b2"])
     
     return grads
   
