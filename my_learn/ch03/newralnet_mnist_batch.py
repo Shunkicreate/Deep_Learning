@@ -1,7 +1,7 @@
 import sys
 from os.path import dirname, abspath
 
-from torch import softmax
+# from torch import softmax
 parent_dir = dirname(dirname(abspath(__file__))) # 追加
 if parent_dir not in sys.path: # 追加
     sys.path.append(parent_dir) # 追加
